@@ -1,3 +1,5 @@
+import GlobalStyles from './global'
+
 const lightTheme = {
   color: 'black',
   background: 'white',
@@ -8,4 +10,4 @@ const darkTheme = {
   background: 'black',
 }
 
-export { darkTheme, lightTheme }
+export { darkTheme, lightTheme, GlobalStyles }

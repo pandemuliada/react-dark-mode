@@ -1,42 +1,42 @@
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
-import { ThemeContext } from '../contexts'
-
-const Container = styled('div')`
-  color: ${({ theme }) => theme.color};
-  background: ${({ theme }) => theme.background};
-`
+import useTheme from '../hooks/useTheme'
 
 const Home = () => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setThemeMode, toggleTheme } = useTheme()
 
   useEffect(() => {
     console.log(theme)
   }, [theme])
 
   return (
-    <Container>
+    <div>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Welcome to Next.js!</h1>
-        <button
-          onClick={() => {
-            if (theme === 'light') {
-              setTheme('dark')
-            } else {
-              setTheme('light')
-            }
-          }}
-        >
-          Change Theme
-        </button>
+      <main
+        style={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <div style={{ textAlign: 'center', width: 'inherit' }}>
+          <h1>Theme Switcher with Styled Components</h1>
+          <button
+            onClick={() => {
+              toggleTheme()
+            }}
+          >
+            Change Theme
+          </button>
+        </div>
       </main>
-    </Container>
+    </div>
   )
 }
 

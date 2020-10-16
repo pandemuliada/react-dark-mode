@@ -1,5 +1,5 @@
 const { createContext } = require('react')
 
-const ThemeContext = createContext('light')
+const ThemeContext = createContext({})
 
 export default ThemeContext
